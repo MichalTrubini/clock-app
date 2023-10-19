@@ -9,6 +9,9 @@ module.exports = {
       'dirty-orange': '#ce5c00',
       'modal': 'rgba(0, 0, 0, 0.8)'
     },
+    backgroundImage: {
+      'day': "url('./assets//bg-day.jpg')",
+    }
   } },
   variants: { extend: {} },
   plugins: [],
