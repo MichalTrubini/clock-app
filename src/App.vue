@@ -77,6 +77,8 @@ export default {
         const dateTime = new Date(this.timeDataAPI.datetime);
         const hour = dateTime.getHours().toString();
         const minute = dateTime.getMinutes().toString();
+        const day = Number(hour) > 17 ? false : true;
+
         const greet =
           Number(hour) < 12
             ? "good morning"
@@ -94,6 +96,7 @@ export default {
           timezone: this.timeDataAPI.timezone,
           city: this.countryDataAPI.data.location.city.name,
           countryCode: this.countryDataAPI.data.location.country.alpha2,
+          day: day
         };
       }
       return data;
