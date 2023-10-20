@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import refreshIcon from "../assets/refresh.svg";
+import refreshIcon from "../assets/refresh2.svg";
 
 export default {
   data() {
