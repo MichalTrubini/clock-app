@@ -14,7 +14,7 @@
           class="font-bold text-[100px] leading-[70px] md:text-[175px] md:leading-[175px] dt:text-[200px] dt:leading-[200px]"
         >
           {{ dataIP.hour }}:{{ dataIP.minute
-          }}<span class="text-base font-light md:text-3xl dt:text-[40px]">{{
+          }}<span class="text-base font-light md:text-3xl dt:text-[40px] dt:pl-4">{{
             dataIP.abbreviation
           }}</span>
         </p>
