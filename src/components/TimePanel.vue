@@ -26,11 +26,11 @@
       </div>
     </div>
     <div
-      class=" cursor-pointer flex items-center justify-between bg-white w-[115px] rounded-3xl p-[3px] md:p-2"
+      class=" cursor-pointer flex items-center justify-between bg-white w-[115px] rounded-3xl p-[3px] md:p-2 dt:w-[146px]"
       @click="toggle"
     >
       <span
-        class="uppercase text-blackLight pl-4 text-sm font-bold md:text-[16px] md:pl-2"
+        class="uppercase text-blackLight pl-4 text-sm font-bold md:text-[16px] md:pl-2 dt:pl-4 dt:tracking-[5px]"
         >{{ showPanel ? "less" : "more" }}</span
       ><img :src="arrowIcon" alt="arrow" class="rotateInit" :class="{ rotate: showPanel }" />
     </div>
