@@ -133,9 +133,9 @@ export default {
   },
   mounted() {
     window.addEventListener("resize", this.handleResize);
-    //this.fetchData("https://worldtimeapi.org/api/ip", "timeDataAPI");
-    //this.fetchData("https://api.ipbase.com/v1/json/", "countryDataAPI");
-    //this.fetchData("https://api.quotable.io/random", "quoteApi");
+    this.fetchData("https://worldtimeapi.org/api/ip", "timeDataAPI");
+    this.fetchData("https://api.ipbase.com/v1/json/", "countryDataAPI");
+    this.fetchData("https://api.quotable.io/random", "quoteApi");
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.handleResize);
