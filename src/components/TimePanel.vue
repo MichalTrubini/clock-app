@@ -1,21 +1,27 @@
 <template>
-  <section class="px-6 pb-10 sm:px-16 md:pb-16 lg:flex lg:items-end lg:justify-between dt:px-[165px] dt:pb-24">
+  <section
+    class="px-6 pb-10 sm:px-16 md:pb-16 lg:flex lg:items-end lg:justify-between dt:px-[165px] dt:pb-24"
+  >
     <div>
       <div class="flex items-center gap-4 mb-4 md:mb-0">
         <img :src="sunIcon" alt="sun" class="w-8 h-8" />
-        <p class="text-base uppercase tracking-[3px] md:text-lg dt:text-xl">{{ greet }}</p>
+        <p class="text-base uppercase tracking-[3px] md:text-lg dt:text-xl">
+          {{ greet }}
+        </p>
       </div>
       <div>
         <p
           class="font-bold text-[100px] leading-[70px] md:text-[175px] md:leading-[175px] dt:text-[200px] dt:leading-[200px]"
         >
-          {{ hour }}:{{ minute
-          }}<span class="text-base font-light md:text-3xl dt:text-[40px]">{{ zone }}</span>
+          {{ dataIP.hour }}:{{ dataIP.minute
+          }}<span class="text-base font-light md:text-3xl dt:text-[40px]">{{
+            dataIP.abbreviation
+          }}</span>
         </p>
         <p
           class="uppercase text-base font-bold tracking-[3px] mb-12 md:text-[28px] md:mb-20 lg:mb-0 dt:text-2xl"
         >
-          in {{ city }}, {{ country }}
+          in {{ dataIP.city }}, {{ dataIP.countryCode }}
         </p>
       </div>
     </div>
@@ -41,13 +47,11 @@ export default {
       greet: "good morning",
       sunIcon: sunIcon,
       arrowIcon: arrowIcon,
-      hour: "11",
-      minute: "37",
-      zone: "BST",
-      city: "London",
-      country: "UK",
       showPanel: false,
     };
+  },
+  props: {
+    dataIP: Object,
   },
   methods: {
     toggle() {

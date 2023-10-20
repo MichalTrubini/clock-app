@@ -14,7 +14,7 @@
       <p
         class="text-blackish text-xl font-bold md:text-[40px] md:leading-normal dt:text-[56px]"
       >
-        Europe/London
+        {{dataIP.timezone}}
       </p>
     </div>
     <div class="flex items-center justify-between md:flex-col md:items-start">
@@ -26,7 +26,7 @@
       <p
         class="text-blackish text-xl font-bold md:text-[40px] md:leading-normal dt:text-[56px]"
       >
-        295
+        {{dataIP.dayOfYear}}
       </p>
     </div>
     <div class="flex items-center justify-between md:flex-col md:items-start">
@@ -38,7 +38,7 @@
       <p
         class="text-blackish text-xl font-bold md:text-[40px] md:leading-normal dt:text-[56px]"
       >
-        5
+      {{dataIP.dayOfWeek}}
       </p>
     </div>
     <div class="flex items-center justify-between md:flex-col md:items-start">
@@ -50,7 +50,7 @@
       <p
         class="text-blackish text-xl font-bold md:text-[40px] md:leading-normal dt:text-[56px]"
       >
-        42
+      {{dataIP.weekNumber}}
       </p>
     </div>
   </section>
@@ -62,6 +62,9 @@ export default {
     return {
       currentHeight: 0, // Initialize currentHeight
     };
+  },
+  props: {
+    dataIP: Object,
   },
   mounted() {
     this.currentHeight = this.$refs.bottomPanel.clientHeight;

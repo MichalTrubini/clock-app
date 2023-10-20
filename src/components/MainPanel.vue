@@ -1,7 +1,10 @@
 <template>
   <div>
-    <time-panel @toggle-showPanel="toggleShowPanel"></time-panel>
-    <info-panel @height-element="heightElement"></info-panel>
+    <time-panel
+      @toggle-showPanel="toggleShowPanel"
+      :dataIP="dataIP"
+    ></time-panel>
+    <info-panel @height-element="heightElement" :dataIP="dataIP"></info-panel>
   </div>
 </template>
 
@@ -12,6 +15,9 @@ export default {
   components: {
     TimePanel,
     InfoPanel,
+  },
+  props: {
+    dataIP: Object,
   },
   methods: {
     toggleShowPanel(showPanel) {
