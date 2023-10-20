@@ -26,13 +26,13 @@
       </div>
     </div>
     <div
-      class="wrapper cursor-pointer flex items-center justify-between bg-white w-[115px] rounded-3xl p-[3px] md:p-2"
+      class=" cursor-pointer flex items-center justify-between bg-white w-[115px] rounded-3xl p-[3px] md:p-2"
       @click="toggle"
     >
       <span
         class="uppercase text-blackLight pl-4 text-sm font-bold md:text-[16px] md:pl-2"
         >{{ showPanel ? "less" : "more" }}</span
-      ><img :src="arrowIcon" alt="arrow" :class="{ rotate: showPanel }" />
+      ><img :src="arrowIcon" alt="arrow" class="rotateInit" :class="{ rotate: showPanel }" />
     </div>
   </section>
 </template>
@@ -63,11 +63,14 @@ export default {
 };
 </script>
 <style scoped>
+
+.rotateInit {
+    transform: rotate(0deg); 
+    transition: all 0.5s ease-in-out;
+}
 .rotate {
   transform: rotate(180deg);
+  transition: all 0.5s ease-in-out;
 }
 
-.wrapper {
-  transition: all 3s ease-in-out;
-}
 </style>
