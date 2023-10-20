@@ -78,13 +78,14 @@ export default {
         const hour = dateTime.getHours().toString();
         const minute = dateTime.getMinutes().toString();
         const day = Number(hour) > 17 ? false : true;
+        const addendum = window.innerWidth > 768 ? ", it's currently" : "";
 
         const greet =
           Number(hour) < 12
-            ? "good morning"
+            ? `good morning${addendum}`
             : Number(hour) > 17
-            ? "good evening"
-            : "good afternoon";
+            ? `good evening${addendum}`
+            : `good afternoon${addendum}`;
         data = {
           greet: greet,
           hour: hour.padStart(2, "0"),
@@ -144,7 +145,7 @@ export default {
     window.addEventListener("resize", this.handleResize);
     this.fetchData("https://worldtimeapi.org/api/ip", "timeDataAPI");
     this.fetchData("https://api.ipbase.com/v2/info?apikey=ipb_live_4XcdQ6Lxwj5Hn1XN8Ac62uSiFPOnxFrxff57t9dg&ip=", "countryDataAPI");
-    //this.fetchData("https://api.quotable.io/random", "quoteApi");
+    this.fetchData("https://api.quotable.io/random", "quoteApi");
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.handleResize);
