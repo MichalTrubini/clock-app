@@ -4,13 +4,18 @@ module.exports = {
   darkMode: false,
   theme: { extend: {
     colors: {
-      'dark-red': '#640032',
-      'purple': '#270041',
-      'dirty-orange': '#ce5c00',
-      'modal': 'rgba(0, 0, 0, 0.8)'
+      blackish: 'rgba(48, 48, 48, 1)',
+      blackLight: 'rgba(0, 0, 0, 0.5)',
+    },
+    fontSize: {
+      base: '0.94rem'
     },
     backgroundImage: {
       'day': "url('./assets//bg-day.jpg')",
+      'night': "url('./assets//bg-night.jpg')",
+    },
+    screens: {
+      'dt': '1440px'
     }
   } },
   variants: { extend: {} },
