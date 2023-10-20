@@ -1,6 +1,6 @@
 <template>
   <div
-    class="overlay bg-day bg-cover bg-top bg-no-repeat relative w-full h-screen overflow-hidden md:bg-center"
+    class="overlay bg-cover bg-top bg-no-repeat relative w-full h-screen overflow-hidden md:bg-center" :class="{bgDay: timeData.day, bgNight: !timeData.day}"
   >
     <main
       :style="
@@ -12,12 +12,11 @@
       "
       class="transition relative z-10 flex flex-col justify-between"
     >
-
-        <quote
-          :quoteData="quoteData"
-          :loading="quoteLoading"
-          @refresh-quote="fetchQuote"
-        ></quote>
+      <quote
+        :quoteData="quoteData"
+        :loading="quoteLoading"
+        @refresh-quote="fetchQuote"
+      ></quote>
       <main-panel
         @toggle-showPanel="toggleShowPanel"
         @height-element="setHeight"
@@ -62,6 +61,7 @@ export default {
     },
     timeData() {
       let data = {
+        greet: "N/A",
         hour: "N/A",
         minute: "N/A",
         dayOfWeek: "N/A",
@@ -70,14 +70,21 @@ export default {
         abbreviation: "N/A",
         timezone: "N/A",
         city: "N/A",
-        country: "N/A",
         countryCode: "N/A",
+        day: true
       };
       if (this.timeDataAPI && this.countryDataAPI) {
         const dateTime = new Date(this.timeDataAPI.datetime);
         const hour = dateTime.getHours().toString();
         const minute = dateTime.getMinutes().toString();
+        const greet =
+          Number(hour) < 12
+            ? "good morning"
+            : Number(hour) > 17
+            ? "good evening"
+            : "good afternoon";
         data = {
+          greet: greet,
           hour: hour.padStart(2, "0"),
           minute: minute.padStart(2, "0"),
           dayOfWeek: this.timeDataAPI.day_of_week,
@@ -85,9 +92,8 @@ export default {
           weekNumber: this.timeDataAPI.week_number,
           abbreviation: this.timeDataAPI.abbreviation,
           timezone: this.timeDataAPI.timezone,
-          city: this.countryDataAPI.city,
-          country: this.countryDataAPI.country_name,
-          countryCode: this.countryDataAPI.country_code,
+          city: this.countryDataAPI.data.location.city.name,
+          countryCode: this.countryDataAPI.data.location.country.alpha2,
         };
       }
       return data;
@@ -134,8 +140,8 @@ export default {
   mounted() {
     window.addEventListener("resize", this.handleResize);
     this.fetchData("https://worldtimeapi.org/api/ip", "timeDataAPI");
-    this.fetchData("https://api.ipbase.com/v1/json/", "countryDataAPI");
-    this.fetchData("https://api.quotable.io/random", "quoteApi");
+    this.fetchData("https://api.ipbase.com/v2/info?apikey=ipb_live_4XcdQ6Lxwj5Hn1XN8Ac62uSiFPOnxFrxff57t9dg&ip=", "countryDataAPI");
+    //this.fetchData("https://api.quotable.io/random", "quoteApi");
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.handleResize);
@@ -147,6 +153,14 @@ export default {
 html {
   font-family: "Inter", sans-serif;
   color: white;
+}
+
+.bgDay {
+  background-image: url("./assets/bg-day.jpg");
+}
+
+.bgNight {
+  background-image: url("./assets/bg-night.jpg");
 }
 
 .overlay::after {
@@ -163,5 +177,4 @@ html {
 .transition {
   transition: all 0.3s ease-in-out;
 }
-
 </style>

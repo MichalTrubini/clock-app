@@ -4,9 +4,9 @@
   >
     <div>
       <div class="flex items-center gap-4 mb-4 md:mb-0">
-        <img :src="sunIcon" alt="sun" class="w-8 h-8" />
+        <img :src="dataIP.day ? sunIcon : moonIcon" alt="sun" class="w-8 h-8" />
         <p class="text-base uppercase tracking-[3px] md:text-lg dt:text-xl">
-          {{ greet }}
+          {{ dataIP.greet }}
         </p>
       </div>
       <div>
@@ -40,13 +40,14 @@
 <script>
 import sunIcon from "../assets/sun.svg";
 import arrowIcon from "../assets/arrow.svg";
+import moonIcon from "../assets/moon.svg";
 
 export default {
   data() {
     return {
-      greet: "good morning",
       sunIcon: sunIcon,
       arrowIcon: arrowIcon,
+      moonIcon: moonIcon,
       showPanel: false,
     };
   },
