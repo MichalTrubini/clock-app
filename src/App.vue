@@ -77,7 +77,7 @@ export default {
         const dateTime = new Date(this.timeDataAPI.datetime);
         const hour = dateTime.getHours().toString();
         const minute = dateTime.getMinutes().toString();
-        const day = Number(hour) > 17 ? false : true;
+        const day = (Number(hour) > 17 && Number(hour) < 6) ? false : true;
         const addendum = window.innerWidth > 768 ? ", it's currently" : "";
 
         const greet =
@@ -154,17 +154,25 @@ export default {
 </script>
 
 <style>
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./src/assets/Inter-VariableFont_slnt,wght.ttf') format('truetype-variations');
+  font-weight: 1 1000; 
+  font-stretch: 1 200;
+}
+
 html {
   font-family: "Inter", sans-serif;
   color: white;
 }
 
 .bgDay {
-  background-image: url("./assets/bg-day.jpg");
+  background-image: url("./assets/bg-day.webp");
 }
 
 .bgNight {
-  background-image: url("./assets/bg-night.jpg");
+  background-image: url("./assets/bg-night.webp");
 }
 
 .overlay::after {

@@ -10,10 +10,6 @@ module.exports = {
     fontSize: {
       base: '0.94rem'
     },
-    backgroundImage: {
-      'day': "url('./assets//bg-day.jpg')",
-      'night': "url('./assets//bg-night.jpg')",
-    },
     screens: {
       'dt': '1440px'
     }
