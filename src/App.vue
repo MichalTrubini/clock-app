@@ -95,8 +95,8 @@ export default {
           weekNumber: this.timeDataAPI.week_number,
           abbreviation: this.timeDataAPI.abbreviation,
           timezone: this.timeDataAPI.timezone,
-          city: this.countryDataAPI.data.location.city.name,
-          countryCode: this.countryDataAPI.data.location.country.alpha2,
+          city: this.countryDataAPI.city,
+          countryCode: this.countryDataAPI.countryCode,
           day: day
         };
       }
@@ -144,7 +144,7 @@ export default {
   mounted() {
     window.addEventListener("resize", this.handleResize);
     this.fetchData("https://worldtimeapi.org/api/ip", "timeDataAPI");
-    this.fetchData("https://api.ipbase.com/v2/info?apikey=ipb_live_4XcdQ6Lxwj5Hn1XN8Ac62uSiFPOnxFrxff57t9dg&ip=", "countryDataAPI");
+    this.fetchData("http://ip-api.com/json/", "countryDataAPI");
     this.fetchData("https://api.quotable.io/random", "quoteApi");
   },
   beforeDestroy() {
