@@ -157,7 +157,7 @@ export default {
 
 @font-face {
   font-family: 'Inter';
-  src: url('./src/assets/Inter-VariableFont_slnt,wght.ttf') format('truetype-variations');
+  src: url('./assets/Inter-VariableFont_slnt,wght.ttf') format('truetype-variations');
   font-weight: 1 1000; 
   font-stretch: 1 200;
 }
