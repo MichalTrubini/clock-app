@@ -96,7 +96,7 @@ export default {
           abbreviation: this.timeDataAPI.abbreviation,
           timezone: this.timeDataAPI.timezone,
           city: this.countryDataAPI.city,
-          countryCode: this.countryDataAPI.countryCode,
+          countryCode: this.countryDataAPI.country_code2,
           day: day
         };
       }
@@ -144,7 +144,7 @@ export default {
   mounted() {
     window.addEventListener("resize", this.handleResize);
     this.fetchData("https://worldtimeapi.org/api/ip", "timeDataAPI");
-    this.fetchData("http://ip-api.com/json/", "countryDataAPI");
+    this.fetchData("https://api.ipgeolocation.io/ipgeo?apiKey=bc20ecd4ed724793a8f14ef0f6911037", "countryDataAPI");
     this.fetchData("https://api.quotable.io/random", "quoteApi");
   },
   beforeDestroy() {
