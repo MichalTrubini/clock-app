@@ -32,7 +32,7 @@
       <span
         class="uppercase text-blackLight pl-4 text-sm font-bold md:text-[16px] md:pl-2 dt:pl-4 dt:tracking-[5px]"
         >{{ showPanel ? "less" : "more" }}</span
-      ><img :src="arrowIcon" alt="arrow" class="rotateInit" :class="{ rotate: showPanel }" />
+      ><img :src="arrowIcon" alt="arrow" class="rotateInit w-8 h-8" :class="{ rotate: showPanel }" />
     </div>
   </section>
 </template>

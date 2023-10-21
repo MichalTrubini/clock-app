@@ -15,7 +15,7 @@
     <img
       :src="iconPath"
       alt="refresh quote"
-      class="mt-2 cursor-pointer"
+      class="mt-2 cursor-pointer w-[18px] h-[18px]"
       :class="{ rotate: loading }"
       @click="refreshQuote"
     />
