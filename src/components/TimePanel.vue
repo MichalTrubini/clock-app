@@ -1,6 +1,6 @@
 <template>
   <section
-    class="px-6 pb-10 sm:px-16 md:pb-16 lg:flex lg:items-end lg:justify-between dt:px-[165px] dt:pb-[98px]"
+    class="px-6 pb-10 min-h-[300px] sm:px-16 md:pb-16 md:min-h-[441px] lg:flex lg:items-end lg:justify-between dt:px-[165px] dt:pb-[98px]"
   >
     <div>
       <div class="flex items-center gap-4 mb-4 md:mb-0">

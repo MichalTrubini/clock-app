@@ -1,6 +1,7 @@
 <template>
   <section
-    class="px-6 pt-8 flex items-start gap-2 sm:px-16 sm:pt-14 md:pt-20 md:gap-4 dt:px-[165px] dt:pt-14"
+    class="px-6 pt-8 flex items-start justify-between gap-2 min-h-[367px] sm:px-16 sm:pt-14 md:pt-20 md:gap-4 lg:justify-start dt:px-[165px] dt:pt-14"
+    :style="'min-height:' + screenHeight + 'px'"
   >
     <div>
       <p
@@ -29,6 +30,7 @@ export default {
   data() {
     return {
       iconPath: refreshIcon,
+      screenHeight: window.innerWidth < 768 ? window.innerHeight -300 :  window.innerHeight - 441,
     };
   },
   props: {
