@@ -160,6 +160,7 @@ export default {
   src: url('./assets/Inter-VariableFont_slnt,wght.ttf') format('truetype-variations');
   font-weight: 1 1000; 
   font-stretch: 1 200;
+  font-display: optional;
 }
 
 html {
